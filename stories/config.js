@@ -3,7 +3,9 @@ import {configure} from '@storybook/vue'
 import Vue from 'vue'
 
 Vue.component('my-button', {
-  template: '<div>hello world</div>',
+  render(h) {
+    return <div>hello</div>
+  },
 })
 
 configure(() => {

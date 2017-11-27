@@ -7,6 +7,7 @@
   "peerDependencies": {},
   "devDependencies": {
     "@storybook/vue": "^3.2.3",
+    "babel-plugin-transform-vue-jsx": "^3.5.0",
     "kcd-scripts": "^0.27.0",
     "vue": "^2.5.8",
     "vue-loader": "^13.5.0",
@@ -20,6 +21,23 @@
     "storybook-static",
     "typings"
   ],
+  "eslintConfig": {
+    "extends": "./node_modules/kcd-scripts/eslint.js",
+    "rules": {
+      "max-lines": "off",
+      "no-eq-null": "off",
+      "eqeqeq": "off",
+      "react/jsx-indent": "off",
+      "no-unused-vars": [
+        2,
+        {
+          "argsIgnorePattern": "(^_)|(^h$)",
+          "varsIgnorePattern": "^ignored",
+          "args": "after-used"
+        }
+      ]
+    }
+  },
   "author": "CreativeThemes",
   "license": "MIT",
   "files": ["dist"],

@@ -1,5 +1,7 @@
 import {storiesOf} from '@storybook/vue'
 
 storiesOf('MyButton', module).add('story as a template', () => ({
-  template: '<div>asd</div>',
+  render(h) {
+    return <div>hello</div>
+  },
 }))
