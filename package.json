@@ -1,6 +1,6 @@
 {
   "name": "vue-downshift",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Vue.js Downshift",
   "main": "dist/vue-downshift.cjs.js",
   "jsnext:main": "dist/vue-downshift.es.js",
@@ -52,6 +52,7 @@
     "storybook:build":
       "cd stories && npm install && cd .. && build-storybook -c stories",
     "validate": "kcd-scripts validate lint,build-and-test,test:cover,test:flow",
-    "precommit": "kcd-scripts precommit"
+    "precommit": "kcd-scripts precommit",
+    "buildAndPublish": "npm run build && npm publish"
   }
 }

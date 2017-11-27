@@ -46,6 +46,12 @@ export default {
         inputValue: this.itemToString(newSelectedItem),
       })
     },
+
+    items() {
+      this.setState({
+        inputValue: this.itemToString(this.mergedState.selectedItem),
+      })
+    },
   },
 
   computed: {
