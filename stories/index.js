@@ -1,5 +1,6 @@
 import {storiesOf} from '@storybook/vue'
 import SelectFromChoices from '../src/select-from-choices-with-groups'
+import '../styles'
 
 storiesOf('MyButton', module).add('story as a template', () => ({
   data: () => ({

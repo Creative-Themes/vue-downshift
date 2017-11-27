@@ -31,7 +31,8 @@
       "eqeqeq": "off",
       "react/jsx-indent": "off",
       "no-unused-vars": "off",
-      "no-lonely-if": "off"
+      "no-lonely-if": "off",
+      "import/no-unassigned-import": "off"
     }
   },
   "author": "CreativeThemes",
