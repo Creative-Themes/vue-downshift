@@ -2,7 +2,7 @@ import Downshift from './downshift'
 import {sortBy, isString} from './utils'
 
 const SingleDownshiftItem = {
-  props: ['item', 'index', 'getHelpersAndState', 'items'],
+  props: ['item', 'index', 'getHelpersAndState', 'items', 'getItemProps'],
   render(h) {
     const {
       getItemProps,
@@ -15,9 +15,12 @@ const SingleDownshiftItem = {
     return (
       <div
         {...{
-          domProps: getItemProps({
-            item: this.item,
-          }),
+          domProps: {
+            ...getItemProps({
+              item: this.item,
+            }),
+            ...this.getItemProps({item: this.item}),
+          },
         }}
         {...{
           on: getItemEvents({
@@ -38,7 +41,15 @@ const SingleDownshiftItem = {
 
 export default {
   name: 'CtSelectFromChoices',
-  props: ['value', 'choices'],
+
+  props: {
+    value: {},
+    choices: {},
+    getItemProps: {
+      type: Function,
+      default: () => ({}),
+    },
+  },
 
   computed: {
     itemsWithoutGroups() {
@@ -195,6 +206,7 @@ export default {
                                 key={nestedItem}
                                 items={this.choices[item].choices}
                                 getHelpersAndState={getHelpersAndState}
+                                getItemProps={this.getItemProps}
                               />
                             ),
                           )}
@@ -208,6 +220,7 @@ export default {
                           key={item}
                           items={this.choices}
                           getHelpersAndState={getHelpersAndState}
+                          getItemProps={this.getItemProps}
                         />
                       ),
                   )}
