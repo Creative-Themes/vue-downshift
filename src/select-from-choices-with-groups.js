@@ -49,6 +49,11 @@ export default {
       type: Function,
       default: () => ({}),
     },
+
+    getInputProps: {
+      type: Function,
+      default: () => ({}),
+    },
   },
 
   computed: {
@@ -169,7 +174,10 @@ export default {
                     },
                   }}
                   {...{
-                    domProps: getInputProps(),
+                    domProps: {
+                      ...getInputProps(),
+                      ...this.getInputProps(this.value),
+                    },
                   }}
                   placeholder="Select value..."
                 />
