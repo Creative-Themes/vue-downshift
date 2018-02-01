@@ -182,59 +182,61 @@ export default {
                   placeholder="Select value..."
                 />
               </div>,
-            ].concat(
-              isOpen && (
-                <div class="ct-select-dropdown">
-                  {Object.keys(
-                    this.filterItemsBy(this.choices, getHelpersAndState()),
-                  ).length === 0 && (
-                    <div class="ct-select-no-results">No results</div>
-                  )}
-                  {sortBy(
-                    Object.keys(
+            ]
+              .concat(
+                isOpen && (
+                  <div class="ct-select-dropdown">
+                    {Object.keys(
                       this.filterItemsBy(this.choices, getHelpersAndState()),
-                    ),
-                    item => item,
-                  ).map(
-                    (item, index) =>
-                      this.choices[item].choices ? (
-                        <div class="ct-select-dropdown-group">
-                          <h2>
-                            {this.choices[item].attr
-                              ? this.choices[item].attr.label
-                              : item}
-                          </h2>
-                          {Object.keys(this.choices[item].choices).map(
-                            nestedItem => (
-                              <SingleDownshiftItem
-                                item={nestedItem}
-                                index={Object.keys(
-                                  this.itemsWithoutGroups,
-                                ).indexOf(nestedItem)}
-                                key={nestedItem}
-                                items={this.choices[item].choices}
-                                getHelpersAndState={getHelpersAndState}
-                                getItemProps={this.getItemProps}
-                              />
-                            ),
-                          )}
-                        </div>
-                      ) : (
-                        <SingleDownshiftItem
-                          item={item}
-                          index={Object.keys(this.itemsWithoutGroups).indexOf(
-                            item,
-                          )}
-                          key={item}
-                          items={this.choices}
-                          getHelpersAndState={getHelpersAndState}
-                          getItemProps={this.getItemProps}
-                        />
+                    ).length === 0 && (
+                      <div class="ct-select-no-results">No results</div>
+                    )}
+                    {sortBy(
+                      Object.keys(
+                        this.filterItemsBy(this.choices, getHelpersAndState()),
                       ),
-                  )}
-                </div>
-              ),
-            ),
+                      item => item,
+                    ).map(
+                      (item, index) =>
+                        this.choices[item].choices ? (
+                          <div class="ct-select-dropdown-group">
+                            <h2>
+                              {this.choices[item].attr
+                                ? this.choices[item].attr.label
+                                : item}
+                            </h2>
+                            {Object.keys(this.choices[item].choices).map(
+                              nestedItem => (
+                                <SingleDownshiftItem
+                                  item={nestedItem}
+                                  index={Object.keys(
+                                    this.itemsWithoutGroups,
+                                  ).indexOf(nestedItem)}
+                                  key={nestedItem}
+                                  items={this.choices[item].choices}
+                                  getHelpersAndState={getHelpersAndState}
+                                  getItemProps={this.getItemProps}
+                                />
+                              ),
+                            )}
+                          </div>
+                        ) : (
+                          <SingleDownshiftItem
+                            item={item}
+                            index={Object.keys(this.itemsWithoutGroups).indexOf(
+                              item,
+                            )}
+                            key={item}
+                            items={this.choices}
+                            getHelpersAndState={getHelpersAndState}
+                            getItemProps={this.getItemProps}
+                          />
+                        ),
+                    )}
+                  </div>
+                ),
+              )
+              .concat(this.$scopedSlots.default && this.$scopedSlots.default()),
         }}
       />
     )
