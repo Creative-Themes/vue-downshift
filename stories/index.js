@@ -12,8 +12,20 @@ storiesOf('Vue Downshift', module)
       return (
         <SelectFromChoices
           choices={{
-            first: 'First',
-            second: 'Second',
+            '': '---',
+            'choice-1': 'Choice 1',
+            'choice-2': 'Choice 2',
+            '0': {
+              attr: {label: 'A group'},
+              choices: {'choice-3': 'choice 3', 'choice-4': {text: 'ANother'}},
+            },
+            '1': {
+              attr: {label: 'Another group'},
+              choices: {
+                'choice-5': {text: 'hello nesting!'},
+                'choice-6': {text: 'ANother'},
+              },
+            },
           }}
           onInput={newValue => (this.value = newValue)}
           value={this.value}
