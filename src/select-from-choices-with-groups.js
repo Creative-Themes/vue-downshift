@@ -15,7 +15,7 @@ const SingleDownshiftItem = {
     return (
       <div
         {...{
-          domProps: {
+          attrs: {
             ...getItemProps({
               item: this.item,
             }),
@@ -174,7 +174,7 @@ export default {
                     },
                   }}
                   {...{
-                    domProps: {
+                    attrs: {
                       ...getInputProps(),
                       ...this.getInputProps(this.value),
                     },
