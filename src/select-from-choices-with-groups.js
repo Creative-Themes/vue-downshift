@@ -142,7 +142,7 @@ export default {
         itemToString={this.itemToString}
         selectedItem={this.value}
         rootProps={{
-          class: 'ct-select-container',
+          class: 'ct-option-select',
         }}
         onSelectedItemChange={newSelectedItem =>
           this.$emit('input', newSelectedItem)
