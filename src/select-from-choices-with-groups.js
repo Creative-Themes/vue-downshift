@@ -3,6 +3,7 @@ import {sortBy, isString} from './utils'
 
 const SingleDownshiftItem = {
   props: ['item', 'index', 'getHelpersAndState', 'items', 'getItemProps'],
+
   render(h) {
     const {
       getItemProps,
@@ -45,6 +46,14 @@ export default {
   props: {
     value: {},
     choices: {},
+
+    /**
+     * only first level options right now
+     */
+    choicesOrder: {
+      type: Array,
+    },
+
     getItemProps: {
       type: Function,
       default: () => ({}),
@@ -191,11 +200,24 @@ export default {
                     ).length === 0 && (
                       <div class="ct-select-no-results">No results</div>
                     )}
-                    {sortBy(
-                      Object.keys(
-                        this.filterItemsBy(this.choices, getHelpersAndState()),
-                      ),
-                      item => item,
+                    {(this.choicesOrder
+                      ? ((t, c) => c(t))(
+                          this.filterItemsBy(
+                            this.choices,
+                            getHelpersAndState(),
+                          ),
+                          ourChoices =>
+                            this.choicesOrder.filter(key => !!ourChoices[key]),
+                        )
+                      : sortBy(
+                          Object.keys(
+                            this.filterItemsBy(
+                              this.choices,
+                              getHelpersAndState(),
+                            ),
+                          ),
+                          item => item,
+                        )
                     ).map(
                       (item, index) =>
                         this.choices[item].choices ? (

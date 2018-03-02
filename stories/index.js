@@ -11,6 +11,7 @@ storiesOf('Vue Downshift', module)
     render(h) {
       return (
         <SelectFromChoices
+          choicesOrder={['choice-1', 'choice-2']}
           choices={{
             '': '---',
             'choice-1': 'Choice 1',
