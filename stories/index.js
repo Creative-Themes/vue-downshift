@@ -59,3 +59,26 @@ storiesOf('Vue Downshift', module)
       )
     },
   }))
+  .add('story with disabled input', () => ({
+    data: () => ({
+      value: 'first',
+    }),
+
+    render(h) {
+      const choices = {
+        first: 'First',
+        second: 'Second',
+        third: 'Third',
+      }
+      return (
+        <SelectFromChoices
+          choices={choices}
+          onInput={newValue => (this.value = newValue)}
+          value={this.value}
+          getInputEvents={(item, {itemToString}) => ({
+            input: e => (e.target.value = itemToString(item)),
+          })}
+        />
+      )
+    },
+  }))

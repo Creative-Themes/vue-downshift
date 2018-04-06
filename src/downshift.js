@@ -259,10 +259,10 @@ export default {
     },
 
     getInputProps() {
-      const {inputValue} = this.mergedState
+      const {inputValue, selectedItem} = this.mergedState
 
       return {
-        value: inputValue,
+        value: inputValue || '',
       }
     },
 

@@ -11,9 +11,9 @@
     "babel-helper-vue-jsx-merge-props": "^2.0.2",
     "babel-plugin-transform-vue-jsx": "^3.5.0",
     "kcd-scripts": "^0.27.0",
-    "vue": "^2.5.8",
+    "vue": "^2.5.16",
     "vue-loader": "^13.5.0",
-    "vue-template-compiler": "^2.5.8"
+    "vue-template-compiler": "^2.5.16"
   },
   "dependencies": {},
   "eslintIgnore": [

@@ -63,6 +63,11 @@ export default {
       type: Function,
       default: () => ({}),
     },
+
+    getInputEvents: {
+      type: Function,
+      default: () => ({}),
+    },
   },
 
   computed: {
@@ -180,12 +185,13 @@ export default {
                     on: {
                       ...getInputEvents(),
                       focus: openMenu,
+                      ...this.getInputEvents(this.value, getHelpersAndState()),
                     },
                   }}
                   {...{
-                    attrs: {
+                    domProps: {
                       ...getInputProps(),
-                      ...this.getInputProps(this.value),
+                      ...this.getInputProps(this.value, getHelpersAndState()),
                     },
                   }}
                   placeholder="Select value..."
