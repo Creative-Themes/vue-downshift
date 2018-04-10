@@ -64,6 +64,10 @@ export default {
       default: () => ({}),
     },
 
+    placeholderizeValue: {
+      default: false,
+    },
+
     getInputEvents: {
       type: Function,
       default: () => ({}),
@@ -154,6 +158,7 @@ export default {
   render() {
     return (
       <Downshift
+        placeholderizeValue={this.placeholderizeValue}
         items={Object.keys(this.itemsWithoutGroups)}
         itemToString={this.itemToString}
         selectedItem={this.value}

@@ -11,6 +11,7 @@ storiesOf('Vue Downshift', module)
     render(h) {
       return (
         <SelectFromChoices
+          placeholderizeValue={'choice-1'}
           choices={{
             '': '---',
             'choice-1': 'Choice 1',

@@ -24,6 +24,10 @@ export default {
       type: Function,
       default: i => (i == null ? '' : String(i)),
     },
+
+    placeholderizeValue: {
+      default: false,
+    },
   },
 
   data: () => ({
@@ -260,7 +264,10 @@ export default {
       const {inputValue, selectedItem} = this.mergedState
 
       return {
-        [selectedItem ? 'value' : 'placeholder']: inputValue || '',
+        [selectedItem === this.placeholderizeValue || !selectedItem
+          ? 'placeholder'
+          : 'value']:
+          inputValue || '',
       }
     },
 
