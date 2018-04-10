@@ -5,13 +5,12 @@ import '../styles'
 storiesOf('Vue Downshift', module)
   .add('story as simple choices', () => ({
     data: () => ({
-      value: 'first',
+      value: '',
     }),
 
     render(h) {
       return (
         <SelectFromChoices
-          choicesOrder={['choice-1', 'choice-2']}
           choices={{
             '': '---',
             'choice-1': 'Choice 1',

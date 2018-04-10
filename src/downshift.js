@@ -76,11 +76,9 @@ export default {
   },
 
   created() {
-    if (this.mergedState.selectedItem) {
-      this.setState({
-        inputValue: this.itemToString(this.mergedState.selectedItem),
-      })
-    }
+    this.setState({
+      inputValue: this.itemToString(this.mergedState.selectedItem),
+    })
   },
 
   mounted() {
@@ -262,7 +260,7 @@ export default {
       const {inputValue, selectedItem} = this.mergedState
 
       return {
-        value: inputValue || '',
+        [selectedItem ? 'value' : 'placeholder']: inputValue || '',
       }
     },
 
