@@ -1,6 +1,6 @@
 {
   "name": "vue-downshift",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Vue.js Downshift",
   "main": "dist/vue-downshift.cjs.js",
   "jsnext:main": "dist/vue-downshift.es.js",
